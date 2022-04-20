@@ -6,4 +6,9 @@ describe('Image processing function test', () => {
       'Cannot read image'
     );
   });
+  it('throws an error when passing invalid dimensions', async () => {
+    await expectAsync(serveImage('wrong', '100', 'a')).toBeRejectedWithError(
+      'Invalid dimensions'
+    );
+  });
 });
